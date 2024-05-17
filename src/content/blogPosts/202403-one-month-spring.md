@@ -1,11 +1,11 @@
 ---
 id: 9ef72e97-16f8-4fc1-82d0-9fa860a0cce1
 title: 'Một tháng cùng Anime Mùa Xuân 2024'
-description: 'Đã một tháng trôi qua kể từ khi Mùa Xuân 2024 bắt đầu. Có gì đáng chú ý?'
+subtitle: 'Đã một tháng trôi qua kể từ khi Mùa Xuân 2024 bắt đầu. Có gì đáng chú ý?'
 tags: ['2024', 'Mùa Xuân']
-published_date: '2024-05-01 12:00'
+publishedDate: '2024-05-01 12:00'
 author: 'Minh Hikari'
-feature_image: '/images/2024/03.Spring - One Month In/cover-vi.jpg'
+image: '/images/blogPosts/202403-one-month-spring.jpeg'
 ---
 
 Hello cả nhà. Tính đến thời điểm này là Anime Mùa Xuân 2024 đã đi được 1 tháng rồi. Đáng ra là bản thân mình đã dự định sẽ lên post để khởi động mùa Anime mới sớm hơn. Cơ mà thời điểm đó, cái blog nó chưa hề ổn định để có thể thư thả mà viết lách.

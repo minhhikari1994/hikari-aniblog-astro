@@ -1,0 +1,29 @@
+---
+import PostLayout from "../../layouts/PostLayout.astro";
+import { getEntry } from "astro:content";
+const { slug } = Astro.params;
+
+if (slug === undefined) {
+  throw new Error("Slug is required");
+}
+const entry = await getEntry("blogPosts", slug);
+if (entry === undefined) {
+  return Astro.redirect("/404");
+}
+
+const { Content } = await entry.render();
+---
+
+<PostLayout>
+    <header>
+        <div class="title">
+            <h2><a href="#">{entry.data.title}</a></h2>
+            <p>{entry.data.subtitle}</p>
+        </div>
+        <div class="meta">
+            <time class="published" datetime="2015-11-01">{entry.data.publishedDate}</time>
+            <a href="#" class="author"><span class="name">{entry.data.author}</span><img src="/images/avatar.jpg" alt="" /></a>
+        </div>
+    </header>
+    <Content></Content>
+</PostLayout>

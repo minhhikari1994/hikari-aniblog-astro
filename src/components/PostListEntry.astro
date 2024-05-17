@@ -1,0 +1,53 @@
+---
+interface Props {
+  title
+  subtitle
+  publishedDate
+  author
+  tags
+  body
+  image
+  slug
+}
+
+const {title, subtitle, publishedDate, author, tags, body, image, slug} = Astro.props
+---
+
+<!-- Post -->
+<article class="post">
+  <header>
+    <div class="title">
+      <h2>
+        <a href={slug}>{title}</a>
+      </h2>
+      <p>{subtitle}</p>
+    </div>
+    <div class="meta">
+      <time class="published" datetime="2015-10-25">{publishedDate}</time>
+      <a href="#" class="author"
+        ><span class="name">{author}</span><img
+          src={"/images/avatar.jpg"}
+          alt=""
+        /></a
+      >
+    </div>
+  </header>
+  <a href={slug} class="image featured"
+    ><img src={image} alt="" /></a
+  >
+  <p>
+    { body.substring(0, 255) }...
+  </p>
+  <footer>
+    <ul class="actions">
+      <li>
+        <a href={slug} class="button large">Continue Reading</a>
+      </li>
+    </ul>
+    <ul class="stats">
+      { tags.map((tag) => {
+        return <li><a href="#">{tag}</a></li>
+      }) }
+    </ul>
+  </footer>
+</article>
