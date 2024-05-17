@@ -25,5 +25,6 @@ const { Content } = await entry.render();
             <a href="#" class="author"><span class="name">{entry.data.author}</span><img src="/images/avatar.jpg" alt="" /></a>
         </div>
     </header>
+    <span class="image featured"><img src={entry.data.image} alt="" /></span>
     <Content></Content>
 </PostLayout>
