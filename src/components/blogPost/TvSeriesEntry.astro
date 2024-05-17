@@ -1,0 +1,54 @@
+---
+const {
+    name,
+    image,
+    studios,
+    genres,
+    with_score,
+    mal_score,
+    mal_number_of_rates,
+    personal_score,
+    anime_of_the_season,
+    aots_season_name_key,
+    aots_season_year
+} = Astro.props
+---
+<div class="box tw-m-auto tw-mb-5 tw-w-full xl:tw-w-4/5">
+    <div class="tw-grid xl:tw-grid-cols-3 tw:tw-grid-cols-1 tw-gap-3">
+        <div class="tw-text-center tw-m-auto">
+            <img class="tw-m-auto tw-w-full" src={image} alt={name} loading="lazy"/>
+        </div>
+        <div class="xl:tw-col-span-2 tw-align-middle tw-text-center tw-m-auto">
+            <div>
+                <h2>{ name }</h2>
+            </div>
+
+            <div><b>Xưởng phim</b></div>
+            <div>{ studios }</div>
+
+            <div><b>Thể loại</b></div>
+            <div>{ genres }</div>
+
+            <!-- <div><b>Đánh giá</b></div>
+            <div>Điểm MAL : </div>
+            <div>Điểm cá nhân : </div> -->
+            
+            <!-- <template v-if="anime_of_the_season">
+                <div class="row" style="margin-top: 1rem;">
+                    <div class="col-12 text-center">
+                        <h3 style="color: #f56a6a;">
+                            {{ $t(
+                                'personal_aots',
+                                { 
+                                    season_name_key: $t(aots_season_name_key),
+                                    season_year: aots_season_year
+                                }
+                            ) }}
+                        </h3>
+                    </div>
+                </div>
+            </template> -->
+        </div>
+        <span></span>
+    </div>
+</div>

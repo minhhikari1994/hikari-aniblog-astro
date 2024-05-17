@@ -1,33 +1,14 @@
 ---
+import LayoutBase from "../components/layout/LayoutBase.astro";
 import Header from "../components/layout/Header.astro";
 ---
-
-<!doctype html>
-<html>
-  <head>
-    <title>Future Imperfect by HTML5 UP</title>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, user-scalable=no"
-    />
-    <link rel="stylesheet" href="/assets/css/fontawesome-all.min.css" />
-    <link rel="stylesheet" href="/assets/css/main.css" />
-  </head>
-  <body class="single is-preload">
-    <div id="wrapper">
-      <Header />
-      <div id="main">
-        <article class="post">
-          <slot />
-        </article>
-      </div>
+<LayoutBase isBodySingleClass={true}>
+  <div id="wrapper">
+    <Header />
+    <div id="main">
+      <article class="post">
+        <slot />
+      </article>
     </div>
-    <!-- Scripts -->
-    <script is:inline src="/assets/js/jquery.min.js"></script>
-    <script is:inline src="/assets/js/browser.min.js"></script>
-    <script is:inline src="/assets/js/breakpoints.min.js"></script>
-    <script is:inline src="/assets/js/util.js"></script>
-    <script is:inline src="/assets/js/main.js"></script>
-  </body>
-</html>
+  </div>
+</LayoutBase>
