@@ -1,4 +1,5 @@
 ---
+import Image from "astro/components/Image.astro";
 import PostLayout from "../../layouts/PostLayout.astro";
 import { getEntry } from "astro:content";
 const { slug } = Astro.params;
@@ -15,16 +16,31 @@ const { Content } = await entry.render();
 ---
 
 <PostLayout>
-    <header>
-        <div class="title">
-            <h2><a href="#">{entry.data.title}</a></h2>
-            <p>{entry.data.subtitle}</p>
-        </div>
-        <div class="meta">
-            <time class="published" datetime="2015-11-01">{entry.data.publishedDate}</time>
-            <a href="#" class="author"><span class="name">{entry.data.author}</span><img src="/images/avatar.jpg" alt="" /></a>
-        </div>
-    </header>
-    <span class="image featured"><img src={entry.data.image} alt="" /></span>
-    <Content></Content>
+  <header>
+    <div class="title">
+      <h2><a href="#">{entry.data.title}</a></h2>
+      <p>{entry.data.subtitle}</p>
+    </div>
+    <div class="meta">
+      <time class="published" datetime="2015-11-01"
+        >{entry.data.publishedDate}</time
+      >
+      <a href="#" class="author"
+        ><span class="name">{entry.data.author}</span><img
+          src="/images/avatar.jpg"
+          alt=""
+        /></a
+      >
+    </div>
+  </header>
+  <span class="image featured"
+    ><Image
+      class="tw-m-auto tw-w-full tw-h-full"
+      src={entry.data.image}
+      width={1280}
+      height={720}
+      alt="featured-image"
+    /></span
+  >
+  <Content />
 </PostLayout>

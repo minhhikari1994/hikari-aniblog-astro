@@ -6,5 +6,8 @@ import tailwind from "@astrojs/tailwind";
 // https://astro.build/config
 export default defineConfig({
   output: "server",
-  integrations: [mdx(), tailwind()]
+  integrations: [mdx(), tailwind()],
+  image: {
+    domains: ["myanimelist.net"],
+  }
 });
