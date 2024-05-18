@@ -1,24 +1,25 @@
 ---
 import { getCollection } from "astro:content";
-import PageLayout from "../layouts/PageLayout.astro";
-import PostListEntry from "../components/PostListEntry.astro";
+import PageLayout from "../../../layouts/PageLayout.astro";
+import PostListEntry from "../../../components/PostListEntry.astro";
 
-const getPostList = async () => {
+const { page } = Astro.props;
+
+export async function getStaticPaths({ paginate }) {
   const allBlogPosts = (await getCollection("blogPosts")).sort(
     (a, b) =>
       Date.parse(b.data.publishedDate) - Date.parse(a.data.publishedDate)
   );
-  return allBlogPosts;
-};
+  return paginate(allBlogPosts, { pageSize: 2 });
+}
 
-const allPosts = await getPostList();
 ---
 
 <PageLayout>
   <body class="is-preload">
     <!-- Main -->
     <div id="main">
-      {allPosts.map((postEntry) => {
+      {page.data.map((postEntry) => {
 		const { title, subtitle, publishedDate, author, tags, image } = postEntry.data
 		const {slug, body} = postEntry 
 		return <PostListEntry
@@ -36,9 +37,9 @@ const allPosts = await getPostList();
       <!-- Pagination -->
       <ul class="actions pagination">
         <li>
-          <a href="" class="disabled button large previous">Previous Page</a>
+          <a href={page.url.prev} class:list={["button", "large", "previous", {disabled: !page.url.prev}]}>Previous Page</a>
         </li>
-        <li><a href="/posts/pages/2" class="button large next">Next Page</a></li>
+        <li><a href={page.url.next} class:list={["button", "large", "next", {disabled: !page.url.next}]}>Next Page</a></li>
       </ul>
     </div>
   </body>
