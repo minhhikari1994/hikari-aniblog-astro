@@ -9,5 +9,9 @@ export default defineConfig({
   integrations: [mdx(), tailwind()],
   image: {
     domains: ["myanimelist.net"],
+  },
+  i18n: {
+    defaultLocale: "en",
+    locales: ["en", 'vi']
   }
 });
